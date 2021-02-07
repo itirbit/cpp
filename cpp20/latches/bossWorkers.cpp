@@ -4,7 +4,8 @@
 #include <thread>
 
 std::latch workDone(6);
-std::latch go Home(1);
+std::latch goHome(1);
+std::mutex coutMutex;
 
 void syncOut(const std::string s)
 {
@@ -45,7 +46,7 @@ int main()
 	std::thread andreWork(andrei);
 
 	Worker andrew("               Andrew");
-	std::thread andrewWork(andre);
+	std::thread andrewWork(andrew);
 
 	Worker david("                   David");
 	std::thread davidWork(david);
@@ -53,12 +54,12 @@ int main()
 	workDone.wait();
 	std::cout << '\n';
 	goHome.count_down();
-	std::cout << "BOSS: GO HOME!\ n";
+	std::cout << "BOSS: GO HOME!\n";
 
 	herbWork.join();
 	scottWork.join();
 	bjarneWork.join();
-	andreiWork.join();
+	andreWork.join();
 	davidWork.join();
 
 }

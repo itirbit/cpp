@@ -1,8 +1,8 @@
+module;
+#include <string_view>
+#include <iostream>
+
 export module hello;
-
-import <string_view>
-import <iostream>
-
 export namespace hello
 {
 	void say_hello(const std::string_view& name)

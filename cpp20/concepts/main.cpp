@@ -13,4 +13,7 @@ constexpr double Average(std::vector<T> const &vec) {
 int main(){
 	std::vector ints {1,2,3,4,5};
 	std::cout << Average(ints) << "\n";
+
+	std::vector strings {"abc", "xyz"};
+	auto test = Average(strings);
 }
